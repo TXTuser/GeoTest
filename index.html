@@ -10,16 +10,24 @@
 
 <body>
     <h1>Country Quizzzzzzz</h1>
-    <form action="">
-        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, accusamus.</h3>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
+    <div class="fortheform">
+        <form action="" class="form">
+            <h3 id="title"></h3>
+            <h2 id="result"></h2>
 
-        <button>next</button>
-        <button>reset</button>
-    </form>
+            <div class="buttonblock" id="buttonblock">
+                <a href="#/" id="one" onclick="checkAnswer(event)"></a>
+                <a href="#/" id="two" onclick="checkAnswer(event)"></a>
+                <a href="#/" id="tree" onclick="checkAnswer(event)"></a>
+                <a href="#/" id="four" onclick="checkAnswer(event)"></a>
+            </div>
+
+            <div class="buttonnextreset">
+                <a href="#/" id="next">next</a>
+                <a href="#/" id="reset">reset</a>
+            </div>
+        </form>
+    </div>
 
 
 
