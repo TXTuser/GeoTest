@@ -74,7 +74,7 @@ function resetQuestion() {
   getQuestion();
 }
 
-time = 5;
+time = 60;
 timeInterval = setInterval(function () {
   time--;
   timetitle.innerHTML = time;
