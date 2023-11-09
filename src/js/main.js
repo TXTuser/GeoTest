@@ -12,6 +12,9 @@ let timeInterval;
 let timer, time;
 let buttonblock = document.getElementById("buttonblock");
 let counter = 0;
+let timeIntervalReset;
+let timereset = 60;
+let counterblock = document.getElementById("counterblock");
 
 let data = [
   {
@@ -23,7 +26,7 @@ let data = [
     answers: ["Москва", "Вена", "Стокгольм", "Женева"],
   },
   {
-    question: "Какая сталица у Швеция?",
+    question: "Какая сталица у Швеции?",
     answers: ["Стокгольм", "Брюссель", "Рим", "Женева"],
   },
 ];
@@ -54,6 +57,7 @@ function getQuestion() {
   three.innerHTML = answers[2];
   four.innerHTML = answers[3];
 }
+
 getQuestion();
 
 function nextQuestion() {
@@ -62,25 +66,60 @@ function nextQuestion() {
   activeButton.style.border = "3px solid transparent";
   if (counter === data.length) {
     timetitle.innerHTML = "Молодец! Ты прошел тест!!!!!!!!!!!!!!!!";
+    clearInterval(timeInterval);
   } else {
     getQuestion();
   }
-}
+  if (next.click) {
+    counterblock.innerHTML =
+      "Вы ответили на " + counter + " вопросов из " + data.length + " вопросов";
+  }
 
-function resetQuestion() {
-  counter = 0;
-  buttonblock.style.pointerEvents = "auto";
-  activeButton.style.border = "3px solid transparent";
-  getQuestion();
+  // for (counter = counter; counter < data.length; counter++) {
+  //   counterblock.innerHTML = "Вы ответили на " + counter + " вопросов";
+  // }
 }
 
 time = 60;
 timeInterval = setInterval(function () {
-  time--;
   timetitle.innerHTML = time;
-  if (time === 0) {
+  time--;
+  if ((time === 0) | reset.click()) {
     timetitle.innerHTML =
       "Ты проиграл. Нажми на кнопку reset, <br> чтобы начать сначала.";
     clearInterval(timeInterval);
   }
 }, 1000);
+
+function resetQuestion() {
+  counter = 0;
+  buttonblock.style.pointerEvents = "auto";
+  getQuestion();
+  clearInterval(timeInterval);
+  time = 60;
+  timetitle.innerHTML = time;
+  timeInterval = setInterval(function () {
+    timetitle.innerHTML = time;
+    time--;
+    if ((time === 0) | reset.click) {
+      timetitle.innerHTML =
+        "Ты проиграл. Нажми на кнопку reset, <br> чтобы начать сначала.";
+      clearInterval(timeInterval);
+    }
+  }, 1000);
+
+  if (reset.click) {
+    counter = 0;
+    counterblock.innerHTML = "Вы ответили на 0 вопросов";
+  }
+}
+
+reset.addEventListener("click", resetQuestion);
+
+// for (i = 0; i <= data.length; i++) {
+//   let count = 0;
+//   if (next.click) {
+//     count++;
+//     counterblock.innerHTML = "Вы ответили на " + count + " вопросов";
+//   }
+// }

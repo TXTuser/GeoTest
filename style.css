@@ -27,6 +27,13 @@ h3 {
     text-align: center;
 }
 
+.questionblock {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    color: aliceblue;
+}
+
 h2 {
     font-weight: 700;
     margin: 25px 0 25px 0;

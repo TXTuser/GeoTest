@@ -10,11 +10,13 @@
 
 <body>
     <h1>Country Quizzzzzzz</h1>
+    <div class="questionblock">
+        <h4 id="counterblock"></h4>
+    </div>
     <div class="fortheform">
         <form action="" class="form">
             <h3 id="title"></h3>
             <h2 id="timetitle">Время на решение задачи 1 минута</h2>
-
             <div class="buttonblock" id="buttonblock">
                 <a href="#/" id="one" onclick="checkAnswer(event)"></a>
                 <a href="#/" id="two" onclick="checkAnswer(event)"></a>
@@ -24,7 +26,7 @@
 
             <div class="buttonnextreset">
                 <a href="#/" id="next" onclick="nextQuestion()">next</a>
-                <a href="#/" id="reset" onclick="resetQuestion()">reset</a>
+                <a href="#/" id="reset">reset</a>
             </div>
         </form>
     </div>
